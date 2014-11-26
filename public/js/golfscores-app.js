@@ -14,7 +14,8 @@ angular.module('golfscores',[]).controller('MainCtrl', ['$scope','$http',functio
             $scope.courseDetails = data.data[0].holes;
             $(".loader").css("display","none");
             $(".holesCollection,.btnGroup-scAction").css("display","block");
-            
+            /*temp*/
+             fixHeightForMobileSkrollr()
         });
     };
 
@@ -64,7 +65,9 @@ angular.module('golfscores',[]).controller('MainCtrl', ['$scope','$http',functio
        $http.get('/api/results').success(function(data){
            $scope.results = data.results;
            $(".loader").css("display","none");
-           $("#previousRoundSelector").css("display","block")
+           $("#previousRoundSelector").css("display","block");
+            /*temp*/
+           fixHeightForMobileSkrollr()
        });
 
    };
@@ -99,8 +102,11 @@ angular.module('golfscores',[]).controller('MainCtrl', ['$scope','$http',functio
             $scope.previousResults = data.results.data[0].holes;
             $(".loader").css("display","none");
             $("#previousScoreCard").css("display","block");
+            /*temp*/
+            fixHeightForMobileSkrollr()
         });
     };
+
 
     /*private functions*/
     function AddZero(num) {

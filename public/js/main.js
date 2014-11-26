@@ -18,12 +18,10 @@ $(function() {
 
 
     /*temp fix until i properly sort out the skrollr issue*/
-    $("#skrollr-body").css("height", screenHeight + "px");
+    fixHeightForMobileSkrollr();
     window.addEventListener("resize", function() {
-	    $("#skrollr-body").css("height", screenHeight + "px");
+	    fixHeightForMobileSkrollr();
     }, false);
-
-
 });
 
 function ytdMessage(type){
@@ -39,11 +37,15 @@ function ytdMessage(type){
     $(".toast p").html(msg);
     $(".toast").show();
     return false;
-
-
+}
+/*temp fix until i properly sort out the skrollr issue*/
+function fixHeightForMobileSkrollr(){
+    setTimeout(function(){
+        var skrollrHeight = $(".topRow").height();
+        $("#skrollr-body").css("height", skrollrHeight + "px");
+    },500);
 
 }
-
 function changeTab(tab){
     $("#myTab a[href='#"+tab+"']").tab('show');
 }
