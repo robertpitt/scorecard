@@ -3,9 +3,9 @@
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-/*fix for mobile scrolling*/
+/*temp fix for mobile scrolling*/
 #skrollr-body {
-  height: 100%;
+  height: 4500px;
   position: relative;
   width: 100%;
 }
