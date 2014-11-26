@@ -242,7 +242,9 @@
    #dropdownMenu1{
       font-size:16px;
    }
-
+   .courseSelected{
+        font-size:16px;
+    }
 }
 @media (max-width: 400px){
    .mainLabel{
@@ -252,6 +254,9 @@
    #dropdownMenu1{
       font-size:12px;
    }
+    .courseSelected{
+        font-size:14px;
+    }
 }
 
 .loader {
