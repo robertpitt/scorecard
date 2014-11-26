@@ -3,7 +3,12 @@
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
+/*fix for mobile scrolling*/
+#skrollr-body {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
 /*resize some bootstap sizes*/
 
 .jumbotron h1{
