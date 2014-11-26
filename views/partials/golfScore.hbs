@@ -1,0 +1,137 @@
+       
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="banner container" data-0="height:240px;font-size:40px;line-height:184px;" data--140-top="height:60px;font-size:22px;line-height:63px; ">
+            <div class="container">
+                {{#if (isSingleCourse data)}}
+                    <p class="courseSelected">{{data.0.name}} <a href="/golfScores" class="rtnLink">(Select alternative course)</a></p>
+                {{else}}
+                <form >
+                    <label class="mainLabel">Select your course</label>
+                        <span>
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                    Available courses  <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                    {{#each data}}
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/golfScores/{{urlFriendly name }}">{{ name }}</a></li>
+                                    {{/each }}
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="ytdMessage('newCourse')">New course</a></li>
+                                </ul>
+                            </div>
+                        </span>
+                </form>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="container topRow">
+
+            {{#if (isSingleCourse data)}}
+
+            <div id="singleCourse">
+
+                <!-- Example row of columns -->
+                <div class="row">
+
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active"><a href="#newRound" data-toggle="tab">New Round</a></li>
+                        <li class=""><a href="#results" data-toggle="tab" ng-click="showPreviousResults()">Previous scores</a></li>
+                        <li class=""><a href="#analysis" data-toggle="tab">Analysis</a></li>
+                    </ul>
+
+                    <div id="myTabContent" class="tab-content" >
+                        <div class="loader"></div>
+                        <div class="tab-pane fade active in" id="newRound">
+
+                                <script>
+                                    courseName = '{{urlFriendly data.0.name }}';
+                                </script>
+
+                                <div class="holesCollection clearfix">
+                                    <div class="col-md-3 " ng-repeat="hole in courseDetails">
+                                        <div class="holePlaceCard">
+                                            <span class="holeNumber">
+                                                {[{ hole.number }]}
+                                            </span>
+                                            <div class="holeDetails">
+                                                <h3>Yards: {[{ hole.yards }]}</h3>&nbsp;&bull;&nbsp;<h3>Par: {[{ hole.par }]}</h3>&nbsp;&bull;&nbsp;<h3>SI: {[{ hole.si }]}</h3>
+                                            </div>
+                                            <div class="score">
+                                                <input value="{[{ hole.score.total }]}" ng-model="hole.score.total" class="totalHoleScore" readonly />
+                                            </div>
+                                        <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-default" ng-click="addStroke(this,'shots',-1,$event)"><span class="glyphicon glyphicon-minus"></span> Shot <span class='currentValue'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+                                                <button type="button" class="btn btn-default" ng-click="addStroke(this,'shots',1, $event)"><span class="glyphicon glyphicon-plus"></span> Shot <span class='currentValue'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+                                            </div>
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-default" ng-click="addStroke(this,'putts',-1, $event)"><span class="glyphicon glyphicon-minus"></span> Putt <span class='currentValue'>&nbsp;&nbsp;&nbsp;</span></button>
+                                                <button type="button" class="btn btn-default" ng-click="addStroke(this,'putts',1, $event)"><span class="glyphicon glyphicon-plus"></span> Putt <span class='currentValue'>&nbsp;&nbsp;&nbsp;</span></button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btnGroup-scAction">
+                                    <button class="btn btn-default" ng-click="saveScore()">Update score</button><span ng-model="lastSave" class="lastSaveTime">{[{ lastSave }]}</span>
+                                    <button class="btn btn-default" ng-click="endRound()" id="completeBtn">Complete round</button>
+                                </div>
+
+                        </div>
+
+                        <div class="tab-pane fade" id="results">
+                            
+                            <div id="previousRoundSelector">
+                                <div class="col-md-3" ng-repeat="rounds in results | filter: courseName" ng-click="roundSelected(rounds.scoreCardId)">
+                                    <div  class="smScoreCard">
+                                    <h2 class="courseHeader"> {[{removeDashes(rounds.name) }]} </h2>
+                                    <p>{[{ formatDate(rounds.dateOfRound) }]}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="previousScoreCard">
+                                <a href="#" onclick="showAllRounds()" class="returnLink">View previous rounds at this course</a>
+                                <div class="col-md-12">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Hole No.</th>
+                                            <th>Yards</th>
+                                            <th>SI</th>
+                                            <th>Par</th>
+                                            <th>Score</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="hole in previousResults">
+                                            <td>{[{ hole.number }]}</td>
+                                            <td>{[{ hole.yards }]}</td>
+                                            <td>{[{ hole.si }]}</td>
+                                            <td>{[{ hole.par }]}</td>
+                                            <td><input value="{[{ hole.score.total }]}" ng-model="hole.score.total" class="totalScore" readonly /></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="analysis">
+                            <h2>Analysis section</h2>
+                            <p>Eventually this section will compare the average scores against regulation golf score. It should then be clear if the golfer should spend time on the driving range or putting green.<br/><br/>This section has not been completed yet  </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            {{else}}
+                <div id="nocourse"><p class="selectCourse"><img src="/img/arrow.png" alt="select a course" class="uparrow">To begin please select a course</p></div>
+            {{/if}}
+
+            
+            <hr>
+
+

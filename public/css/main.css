@@ -1,0 +1,308 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/*resize some bootstap sizes*/
+
+.jumbotron h1{
+    font-size:40px;
+    color:#333;
+}
+.jumbotron p{
+    font-size:16px;
+}
+.screenshot{
+    padding: 5px;
+    background-color:#fff;
+    border: 1px solid #ccc;
+}
+.banner{
+   position:fixed;
+   z-index:2;
+   background: #ccc url(../img/golf.png) no-repeat center center;
+   width:100%;
+   -moz-box-shadow: inset 0 -7px 9px -7px rgba(0,0,0,0.7);
+   -webkit-box-shadow: inset 0 -7px 9px -7px rgba(0,0,0,0.7);
+   box-shadow: inset 0 -7px 9px -7px rgba(0,0,0,0.7);
+   line-height: 184px;
+   vertical-align: middle;
+
+
+}
+
+.banner .dropdown{
+   display:inline;
+}
+.banner .btn{
+   font-size:0.5em;
+}
+.topRow{
+   margin-top:240px;
+}
+
+
+.toast{
+   display:none;
+   position: fixed;
+   top: 30px;
+   left:30%;
+   right:30%;
+   margin: auto auto;
+   z-index:10;
+}
+
+.toastClose{
+   float:right;
+   cursor: pointer;
+}
+.mainLabel{
+   color:#fff;
+}
+.courseSelected{
+   color:#fff;
+}
+.rtnLink{
+   color:#ccc;
+   font-size:0.4em;
+
+}
+.navbar{
+   z-index:9;
+}
+
+
+#singleCourse{
+   margin: 20px 0 0 0;
+}
+.uparrow{
+    width: 40px;
+    padding: 10px 0 10px 10px;
+    margin-left: 40px;
+    margin-top: -45px;
+}
+.selectCourse{
+    padding-top: 30px;
+    font-family: "Indie Flower";
+    font-size: 40px;
+    color:#2d657a;
+
+}
+/*scores*/
+.totalScore{
+   border: 0;
+   width:30px;
+}
+.currentValue{
+   font-size:11px;
+   color:#333399;
+}
+.row .glyphicon{
+   font-size: 8px;
+   line-height: 18px;
+   top: -1px;
+}
+.tab-pane .btn-default{
+   margin-bottom:5px;
+   width:85px;
+}
+
+/*scores -placecard version*/
+.holesCollection{
+    margin-top:10px;
+    text-align:center;
+    display:none;
+}
+.btnGroup-scAction{
+    display:none;
+}
+/*poor performance css select, chaange asap*/
+.btnGroup-scAction button.btn{
+    margin: 10px;
+    width:200px;
+}
+
+
+.holePlaceCard{
+   color:#333;
+   border:1px solid #E2EDC0;
+   -webkit-border-radius:3px;
+   -mox-border-radius: 3px;
+   border-radius: 25px 0 25px 0;
+   margin-bottom:15px;
+    padding: 15px 0
+}
+.holeNumber{
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #BADA55;
+    height: 40px;
+    width: 40px;
+    font-weight: bold;
+    font-size: 30px;
+    color: #fff;
+    line-height: 40px;
+    top: 5px;
+    left: 20px;
+    position: absolute;
+}
+.totalHoleScore{
+    font-size:60px;
+    width:100px;
+    font-weight:bold;
+    color:#686F52;
+    border: 0;
+    text-align:center;
+}
+.holeDetails{
+    background-color: #E2EDC0;
+    margin-left: 10px;
+    padding: 0 0 0 35px;
+    color: #333;
+    font-weight: bold;
+}
+.holePlaceCard h2{
+    font-size: 16px
+}
+.holePlaceCard h3{
+    display:inline;
+    font-size:12px;
+    margin-right:5px;
+}
+
+.lastSaveTime{
+    font-weight:bold;
+   font-style:italic;
+   font-size:12px;
+   padding-left:20px;
+}
+#completeBtn{
+   display:none;
+}
+/*previous scrores*/
+#previousRoundSelector {
+   padding: 10px 0 0 0;
+   display:block;
+}
+#previousScoreCard{
+   display:none;
+}
+.smScoreCard{
+   color:#333;
+   border:1px solid #d4d4d4;
+   -webkit-border-radius:3px;
+   -mox-border-radius: 3px;
+   border-radius: 3px;
+   cursor:pointer;
+   margin: 0 10px 10px 0;
+   text-align: center;
+}
+
+.smScoreCard:hover{
+   background-color:#f4f4f4;
+   border:1px solid #999;
+}
+
+.courseHeader{
+   font-size: 18px;
+
+}
+.returnLink{
+    float: left;
+    font-size: 11px;
+    padding: 10px;
+}
+
+
+
+
+@media (min-width: 768px) and (max-width: 1000px){
+   .navbar-form input[type='text'], .navbar-form input[type='password']{
+      width:120px;
+   }
+   .mainLabel{
+      font-size:24px;
+      line-height:40px;
+   }
+   #dropdownMenu1{
+      font-size:128
+   }
+}
+@media (min-width: 400px) and (max-width: 768px) {
+   .mainLabel{
+      font-size:20px;
+      line-height:40px;
+   }
+   #dropdownMenu1{
+      font-size:16px;
+   }
+
+}
+@media (max-width: 400px){
+   .mainLabel{
+      font-size:16px;
+      line-height:40px;
+   }
+   #dropdownMenu1{
+      font-size:12px;
+   }
+}
+
+.loader {
+  font-size: 90px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin: 0.8em auto;
+  position: relative;
+  -webkit-animation: load6 1.7s infinite ease;
+  animation: load6 1.7s infinite ease;
+  display:none;
+}
+@-webkit-keyframes load6 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    box-shadow: -0.11em -0.83em 0 -0.4em #666666, -0.11em -0.83em 0 -0.42em #666666, -0.11em -0.83em 0 -0.44em #666666, -0.11em -0.83em 0 -0.46em #666666, -0.11em -0.83em 0 -0.477em #666666;
+  }
+  5%,
+  95% {
+    box-shadow: -0.11em -0.83em 0 -0.4em #666666, -0.11em -0.83em 0 -0.42em #666666, -0.11em -0.83em 0 -0.44em #666666, -0.11em -0.83em 0 -0.46em #666666, -0.11em -0.83em 0 -0.477em #666666;
+  }
+  30% {
+    box-shadow: -0.11em -0.83em 0 -0.4em #666666, -0.51em -0.66em 0 -0.42em #666666, -0.75em -0.36em 0 -0.44em #666666, -0.83em -0.03em 0 -0.46em #666666, -0.81em 0.21em 0 -0.477em #666666;
+  }
+  55% {
+    box-shadow: -0.11em -0.83em 0 -0.4em #666666, -0.29em -0.78em 0 -0.42em #666666, -0.43em -0.72em 0 -0.44em #666666, -0.52em -0.65em 0 -0.46em #666666, -0.57em -0.61em 0 -0.477em #666666;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    box-shadow: -0.11em -0.83em 0 -0.4em #666666, -0.11em -0.83em 0 -0.42em #666666, -0.11em -0.83em 0 -0.44em #666666, -0.11em -0.83em 0 -0.46em #666666, -0.11em -0.83em 0 -0.477em #666666;
+  }
+}
+@keyframes load6 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    box-shadow: -0.11em -0.83em 0 -0.4em #666666, -0.11em -0.83em 0 -0.42em #666666, -0.11em -0.83em 0 -0.44em #666666, -0.11em -0.83em 0 -0.46em #666666, -0.11em -0.83em 0 -0.477em #666666;
+  }
+  5%,
+  95% {
+    box-shadow: -0.11em -0.83em 0 -0.4em #666666, -0.11em -0.83em 0 -0.42em #666666, -0.11em -0.83em 0 -0.44em #666666, -0.11em -0.83em 0 -0.46em #666666, -0.11em -0.83em 0 -0.477em #666666;
+  }
+  30% {
+    box-shadow: -0.11em -0.83em 0 -0.4em #666666, -0.51em -0.66em 0 -0.42em #666666, -0.75em -0.36em 0 -0.44em #666666, -0.83em -0.03em 0 -0.46em #666666, -0.81em 0.21em 0 -0.477em #666666;
+  }
+  55% {
+    box-shadow: -0.11em -0.83em 0 -0.4em #666666, -0.29em -0.78em 0 -0.42em #666666, -0.43em -0.72em 0 -0.44em #666666, -0.52em -0.65em 0 -0.46em #666666, -0.57em -0.61em 0 -0.477em #666666;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    box-shadow: -0.11em -0.83em 0 -0.4em #666666, -0.11em -0.83em 0 -0.42em #666666, -0.11em -0.83em 0 -0.44em #666666, -0.11em -0.83em 0 -0.46em #666666, -0.11em -0.83em 0 -0.477em #666666;
+  }
+}
