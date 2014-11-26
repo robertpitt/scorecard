@@ -16,6 +16,14 @@ $(function() {
         $(this).parent().hide()
     })
 
+
+    /*temp fix until i properly sort out the skrollr issue*/
+    $("#skrollr-body").css("height", screenHeight + "px");
+    window.addEventListener("resize", function() {
+	    $("#skrollr-body").css("height", screenHeight + "px");
+    }, false);
+
+
 });
 
 function ytdMessage(type){
